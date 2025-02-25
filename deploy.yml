@@ -1,0 +1,15 @@
+---
+- name: Deploy Calculator App with Docker
+  hosts: webserver
+  become: yes
+  tasks:
+    - name: Install Docker
+      apt:
+        name: docker.io
+        state: present
+
+    - name: Pull Docker Image
+      command: docker pull mydockerhub/scientific-calculator:latest
+
+    - name: Run Docker Container
+      command: docker run -d --name scientific-calculator mydockerhub/scientific-calculator:latest
