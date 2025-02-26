@@ -37,6 +37,16 @@
                 </configuration>
             </plugin>
 
+             <!-- Maven Exec Plugin to Run Java Main Class -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>3.0.0</version>
+                <configuration>
+                    <mainClass>com.example.Calculator</mainClass>
+                </configuration>
+            </plugin>
+
             <!-- Surefire Plugin for Unit Tests -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -44,13 +54,16 @@
                 <version>2.22.2</version>
             </plugin>
 
-            <!-- JAR Plugin -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
                 <version>3.2.0</version>
                 <configuration>
-                    <finalName>scientific-calculator-1.0-SNAPSHOT</finalName>
+                    <archive>
+                        <manifest>
+                            <mainClass>com.example.Calculator</mainClass>
+                        </manifest>
+                    </archive>
                 </configuration>
             </plugin>
         </plugins>
