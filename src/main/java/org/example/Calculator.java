@@ -34,7 +34,6 @@ public class Calculator {
         return n * factorial(n - 1);
     }
 
-
     public static double squareRoot(double num) {
         if (num < 0) {
             throw new ArithmeticException("Error! Square root of a negative number.");
@@ -49,56 +48,81 @@ public class Calculator {
         return Math.log(num);
     }
 
+    public static void displayMenu() {
+        System.out.println("\n--- Scientific Calculator ---");
+        System.out.println("1. Add\n2. Subtract\n3. Multiply\n4. Divide");
+        System.out.println("5. Power\n6. Square Root\n7. Natural Log\n8. Factorial");
+        System.out.println("9. Exit");
+        System.out.print("Enter your choice: ");
+    }
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Scientific Calculator");
-        System.out.println("1. Add\n2. Subtract\n3. Multiply\n4. Divide");
-        System.out.println("5. Power\n6. Square Root\n7. NaturalLog\n8. Factorial\n");
-        System.out.print("Enter your choice: ");
-        int choice = scanner.nextInt();
+        int choice;
 
-        double num1, num2;
-        switch (choice) {
-            case 1:
-                num1 = scanner.nextDouble();
-                num2 = scanner.nextDouble();
-                System.out.println("Result: " + add(num1, num2));
-                break;
-            case 2:
-                num1 = scanner.nextDouble();
-                num2 = scanner.nextDouble();
-                System.out.println("Result: " + subtract(num1, num2));
-                break;
-            case 3:
-                num1 = scanner.nextDouble();
-                num2 = scanner.nextDouble();
-                System.out.println("Result: " + multiply(num1, num2));
-                break;
-            case 4:
-                num1 = scanner.nextDouble();
-                num2 = scanner.nextDouble();
-                System.out.println("Result: " + divide(num1, num2));
-                break;
-            case 5:
-                num1 = scanner.nextDouble();
-                num2 = scanner.nextDouble();
-                System.out.println("Result: " + power(num1, num2));
-                break;
-            case 6:
-                num1 = scanner.nextDouble();
-                System.out.println("Result: " + squareRoot(num1));
-                break;
-            case 7:
-                num1 = scanner.nextDouble();
-                System.out.println("Result: " + logarithm(num1));
-                break;
-            case 8:
-                num1 = scanner.nextDouble();
-                System.out.println("Result: " + factorial(num1));
-                break;
-            default:
-                System.out.println("Invalid choice");
-        }
+        do {
+            displayMenu();
+            choice = scanner.nextInt();
+            double num1, num2;
+
+            try {
+                switch (choice) {
+                    case 1:
+                        System.out.print("Enter two numbers: ");
+                        num1 = scanner.nextDouble();
+                        num2 = scanner.nextDouble();
+                        System.out.println("Result: " + add(num1, num2));
+                        break;
+                    case 2:
+                        System.out.print("Enter two numbers: ");
+                        num1 = scanner.nextDouble();
+                        num2 = scanner.nextDouble();
+                        System.out.println("Result: " + subtract(num1, num2));
+                        break;
+                    case 3:
+                        System.out.print("Enter two numbers: ");
+                        num1 = scanner.nextDouble();
+                        num2 = scanner.nextDouble();
+                        System.out.println("Result: " + multiply(num1, num2));
+                        break;
+                    case 4:
+                        System.out.print("Enter two numbers: ");
+                        num1 = scanner.nextDouble();
+                        num2 = scanner.nextDouble();
+                        System.out.println("Result: " + divide(num1, num2));
+                        break;
+                    case 5:
+                        System.out.print("Enter base and exponent: ");
+                        num1 = scanner.nextDouble();
+                        num2 = scanner.nextDouble();
+                        System.out.println("Result: " + power(num1, num2));
+                        break;
+                    case 6:
+                        System.out.print("Enter number: ");
+                        num1 = scanner.nextDouble();
+                        System.out.println("Result: " + squareRoot(num1));
+                        break;
+                    case 7:
+                        System.out.print("Enter number: ");
+                        num1 = scanner.nextDouble();
+                        System.out.println("Result: " + logarithm(num1));
+                        break;
+                    case 8:
+                        System.out.print("Enter number: ");
+                        num1 = scanner.nextDouble();
+                        System.out.println("Result: " + factorial(num1));
+                        break;
+                    case 9:
+                        System.out.println("Exiting Calculator. Goodbye!");
+                        break;
+                    default:
+                        System.out.println("Invalid choice. Please try again.");
+                }
+            } catch (ArithmeticException e) {
+                System.out.println(e.getMessage());
+            }
+        } while (choice != 9);
+
         scanner.close();
     }
 }
