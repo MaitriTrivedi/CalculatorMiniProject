@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.example</groupId>
-    <artifactId>Calculator_java</artifactId>
+    <artifactId>scientific-calculator</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
@@ -43,7 +43,7 @@
                 <artifactId>exec-maven-plugin</artifactId>
                 <version>3.0.0</version>
                 <configuration>
-                    <mainClass>com.example.Calculator</mainClass>
+                    <mainClass>org.example.Calculator</mainClass>
                 </configuration>
             </plugin>
 
@@ -61,7 +61,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>com.example.Calculator</mainClass>
+                            <mainClass>org.example.Calculator</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
