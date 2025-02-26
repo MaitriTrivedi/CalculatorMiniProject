@@ -20,4 +20,5 @@
     #   ignore_errors: yes
 
     - name: Run Java Application Container
-      shell: docker run -it -d --name calculator mtrivedi1410/calculator
+      # shell: docker run -it -d --name calculator mtrivedi1410/calculator
+      shell: docker run -it -d --name calculator mtrivedi1410/calculator /bin/bash
