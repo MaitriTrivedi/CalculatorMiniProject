@@ -72,7 +72,7 @@ public class CalculatorTest {
     public void testFactorial() {
         assertEquals(120.0, Calculator.factorial(5), 0.0001);   
         assertEquals(1.0, Calculator.factorial(0), 0.0001);     
-        assertEquals(1.0, Calculator.factorial(1), 0.0001);     // 1! = 1
+        assertEquals(1.0, Calculator.factorial(1), 0.0001);    
         try {
             Calculator.factorial(-3);
             fail("Expected ArithmeticException");
