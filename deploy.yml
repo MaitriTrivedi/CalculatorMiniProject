@@ -1,6 +1,6 @@
 ---
 - name: Deploy Calculator App with Docker
-  hosts: webserver
+  hosts: localhost
   become: yes
   tasks:
     - name: Install Docker
